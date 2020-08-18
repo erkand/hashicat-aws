@@ -5,8 +5,8 @@ module "vpc" {
   version = "2.48.0"
 
   database_subnet_assign_ipv6_address_on_creation = "false"
-  default_security_group_egress = "defaultsg"
-  default_security_group_ingress = "defaultsg2"
+  default_security_group_egress = "40"
+  default_security_group_ingress = "32"
   elasticache_subnet_assign_ipv6_address_on_creation = "false"
   enable_classiclink = "false"
   enable_classiclink_dns_support = "false"
