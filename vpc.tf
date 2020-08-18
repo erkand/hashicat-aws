@@ -1,5 +1,7 @@
 module "vpc" {
-  source = "https://app.terraform.io/app/mokayz-training/modules/view/vpc/aws/2.48.0"
+  source  = "app.terraform.io/mokayz-training/vpc/aws"
+  version = "2.48.0"
+}
 
   name = "secondary-cidr-blocks-example"
 
