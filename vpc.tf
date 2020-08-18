@@ -1,18 +1,8 @@
 //--------------------------------------------------------------------
 // Variables
-variable "vpc_database_subnet_assign_ipv6_address_on_creation" {}
 variable "vpc_default_security_group_egress" {}
 variable "vpc_default_security_group_ingress" {}
-variable "vpc_elasticache_subnet_assign_ipv6_address_on_creation" {}
-variable "vpc_enable_classiclink" {}
-variable "vpc_enable_classiclink_dns_support" {}
 variable "vpc_flow_log_cloudwatch_log_group_kms_key_id" {}
-variable "vpc_flow_log_cloudwatch_log_group_retention_in_days" {}
-variable "vpc_flow_log_log_format" {}
-variable "vpc_intra_subnet_assign_ipv6_address_on_creation" {}
-variable "vpc_private_subnet_assign_ipv6_address_on_creation" {}
-variable "vpc_public_subnet_assign_ipv6_address_on_creation" {}
-variable "vpc_redshift_subnet_assign_ipv6_address_on_creation" {}
 variable "vpc_vpn_gateway_az" {}
 
 //--------------------------------------------------------------------
@@ -21,18 +11,18 @@ module "vpc" {
   source  = "app.terraform.io/mokayz-training/vpc/aws"
   version = "2.48.0"
 
-  database_subnet_assign_ipv6_address_on_creation = "${var.vpc_database_subnet_assign_ipv6_address_on_creation}"
+  database_subnet_assign_ipv6_address_on_creation = "false"
   default_security_group_egress = "${var.vpc_default_security_group_egress}"
   default_security_group_ingress = "${var.vpc_default_security_group_ingress}"
-  elasticache_subnet_assign_ipv6_address_on_creation = "${var.vpc_elasticache_subnet_assign_ipv6_address_on_creation}"
-  enable_classiclink = "${var.vpc_enable_classiclink}"
-  enable_classiclink_dns_support = "${var.vpc_enable_classiclink_dns_support}"
+  elasticache_subnet_assign_ipv6_address_on_creation = "false"
+  enable_classiclink = "false"
+  enable_classiclink_dns_support = "false"
   flow_log_cloudwatch_log_group_kms_key_id = "${var.vpc_flow_log_cloudwatch_log_group_kms_key_id}"
-  flow_log_cloudwatch_log_group_retention_in_days = "${var.vpc_flow_log_cloudwatch_log_group_retention_in_days}"
-  flow_log_log_format = "${var.vpc_flow_log_log_format}"
-  intra_subnet_assign_ipv6_address_on_creation = "${var.vpc_intra_subnet_assign_ipv6_address_on_creation}"
-  private_subnet_assign_ipv6_address_on_creation = "${var.vpc_private_subnet_assign_ipv6_address_on_creation}"
-  public_subnet_assign_ipv6_address_on_creation = "${var.vpc_public_subnet_assign_ipv6_address_on_creation}"
-  redshift_subnet_assign_ipv6_address_on_creation = "${var.vpc_redshift_subnet_assign_ipv6_address_on_creation}"
+  flow_log_cloudwatch_log_group_retention_in_days = 10
+  flow_log_log_format = "txt"
+  intra_subnet_assign_ipv6_address_on_creation = "false"
+  private_subnet_assign_ipv6_address_on_creation = "false"
+  public_subnet_assign_ipv6_address_on_creation = "false"
+  redshift_subnet_assign_ipv6_address_on_creation = "false"
   vpn_gateway_az = "${var.vpc_vpn_gateway_az}"
 }
